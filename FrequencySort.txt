@@ -1,0 +1,19 @@
+string frequencySort(string s) {
+        unordered_map<int,int>mp;
+         priority_queue<pair<int,int>,vector<pair<int,int>>,less<pair<int,int>>>min_heap;
+        string ans="";
+        for(auto i:s) {
+            mp[i]++;
+        }
+        for(auto t:mp){
+            min_heap.push({t.second,t.first});
+        }
+        int n=min_heap.size();
+        while(n--){
+            char ch=min_heap.top().second;
+            int n=min_heap.top().first;
+            min_heap.pop();
+            ans+=string(n,ch);
+        }
+        return ans;
+    }
